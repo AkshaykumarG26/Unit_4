@@ -1,29 +1,24 @@
-function binaryIterative(n, k, arr){
-    var low = 0;
-    var high = n-1;
-    while(low <= high){
-        var mid = Math.floor((low+high)/2)
-        if(arr[mid] == k){
-            return 1
-        }else if(arr[mid] > k){
-            high = mid - 1
-        }else if(arr[mid] < k){
-            low = mid + 1
-        }
-        
-        
-    }
-    return -1
-    
+function binaryRecursive(arr, low, high, k){
+    if (high < low)
+        return -1;
+    if (arr[low] == k)
+        return low;
+    if (arr[high] == k)
+        return high;
+    return binaryRecursive(arr, low+1, high-1, k);
 }
-
 
 
 function runProgram(input) {
     input = input.trim().split("\n")
     var [n,k] = input[0].split(" ").map(Number)
     var arr = input[1].trim().split(" ").map(Number)
-    console.log(binaryIterative(n,k,arr))
+    var find = binaryRecursive(arr, 0, n-1, k)
+    if (find != -1){
+        console.log(1)
+    }else{
+        console.log(-1)
+    }
 
   }
   if (process.env.USERNAME === "akshra") {
