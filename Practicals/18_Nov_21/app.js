@@ -7,6 +7,8 @@ const users = require("./users.json")
 app.use(express.json())
 
 
+// console.log("i have created to check git push")
+
 app.get("/", (req, res) => {
     res.send({ users });
 });
