@@ -1,0 +1,40 @@
+pros and cons of express
+pros => easy to develope and u ahve to write less code coz u have lot of built in code 
+cons => these are slower thsn actual core language reason for that in framewrok there is lot of codde that is not usefull everytime 
+
+
+1. npm init -y
+
+2. npm install express --save
+
+3. make formal things in app.js
+
+in package.json there is script tag avaliable in that i have written  "server": "npx nodemon app.js" is to run app.js to run this i have run cmd in terminal as npm run server
+
+
+REST is representational state transfer
+
+get => retrive a list or a single item
+psor => when we want to save something on server or on DB
+put/patch => update an item put replace the item and patch append to it
+delete => to delete an item
+
+app.get("/", (req, res) => {
+    console.log("Home page get request")
+    res.send("Home page get request")
+})
+
+to check this open postman and select method and then click on send button u can see the visuvals on terminal and also on postman
+
+app.post("/", (req,res) => {
+    console.log("req.body", req.body)
+})
+express has built in function
+to show this just use app.use(express.josn())
+
+
+
+
+middleware is something which runs when request comes in and before the request goes out 
+
+function logger

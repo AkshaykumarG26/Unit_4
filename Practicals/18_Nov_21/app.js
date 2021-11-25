@@ -5,10 +5,6 @@ const app = express();
 const users = require("./users.json")
 
 app.use(express.json())
-// app.get('/', (req,res) => {
-//     // do whatever u want
-//     res.send("Hello")
-// })
 
 
 app.get("/", (req, res) => {
@@ -20,6 +16,7 @@ app.post("/", (req,res) => {
     res.send(newUser);
     // return newUser
 })
+
 
 
 app.patch('/:id', (req, res) => {

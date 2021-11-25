@@ -1,39 +1,32 @@
-const express = require("express");
+const express = require("express")
 
-const app = express();
+const app = express()
 
-app.listen(1234, function(){
-    console.log("we are listening on port 1234")
-});
-// console.log('akshay')
-
-
-// get - retrive a list of something or single item
-// post - save something on server or the db
-// put/patch - update something, put replaces the item and patch appends to it
-// delete - when u want to delete an item
-
-// logger to parse request body
 // app.use(logger);
 
+app.use(express.json())
 
-app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send("Home Page Get Request")
-    // console.log();
+app.get("/", (req, res) => {
+    console.log("Home page get request")
+
 })
 
 
-app.post('/', (req, res) => {
-    // console.log("req.body", req.body)
-    res.status(201).json(req.body);
-    console.log("Home Page Post Request");
-})
 
+app.post("/", (req,res) => {
+    console.log("req.body", req.body)
+    res.send(req.body)
+    console.log("Home page post request")
+})
 
 // function logger(req, res, next){
-//     console.log("logging before")
-//     next();
-//     console.log("logging after next")
+//     console.log("logging")
+//     next()
 // }
+
+
+
+app.listen(1234, function() {
+    console.log("listening on port 1234")
+})

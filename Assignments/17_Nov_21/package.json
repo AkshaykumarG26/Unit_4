@@ -1,0 +1,16 @@
+{
+  "name": "17_nov_21",
+  "version": "1.0.0",
+  "description": "Assignment of 17_Nov_21",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npx nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Akshaykumar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

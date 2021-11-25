@@ -1,0 +1,65 @@
+1. npm init -y  =>  to intialize the modules
+
+the package.json file contain all the non technical info about the projects i.e. meta info
+
+2. npm install express --save   =>  to install express (For ubuntu)   or use npm -i express
+
+it will install all the dependencies and version. versio is very usefull when it u r making projects
+
+
+3. import express in app.js file use const express = require("express");
+
+to run the app.js as live server install nodemon and to run app.js in terminal use the cmd npx nodemon app.js
+
+app.listen(2345, function() {
+    console.log("listening on port 2345")
+})
+
+is to get the visual feedback only it is not mandetory to write in app.js
+
+
+
+/* HTTP Vrebs
+
+    > get - get all the items
+    > get - get single item
+    > post - create single item
+    > patch or put - update a single item
+    > patch is use for changing few fields in existing item and put is use for replacing    new item with the existing item put (taking old one out and replacing with the new one)
+
+    > delete - delete a single item
+
+    this is CRUD operation
+*/
+
+
+
+
+-----------Assignment-----------
+
+Please create an http server and you can use the users.json by downloading it from mockaroo.com and you need to write following apis
+
+1. get / => this will return simple text "Welcome to Home page"
+2. get /users => this will return a list of all users
+
+solution for 1 =>
+
+app.get('/', (req, res) => {
+    res.send("Welcome To Home Page")
+});
+
+
+solution for 2 =>
+
+define users as const users = require("./users.json)
+app.get('/users', (req,res) =>  {
+    const newUser = [...users, req.body]
+    res.send(newUser)
+})
+
+and then run on postman u'll get an output of all users 
+
+
+
+
+--------------------Done----------------------

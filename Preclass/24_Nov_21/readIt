@@ -1,0 +1,9 @@
+how to structure ur code MVC is model view controller
+
+about web app in genreral
+web app consist of 3 layers
+1 view layer => is client facing site of ur app 
+2 application layer => is basically something which defines how ur app work basically authentication can be part of ap layer also how ur application interact with other part of code this is generally done using controller just controller.js file this file contain meet of ur request if we want to fetch simething it will deligate work to different work this controller should be dumb get the request and work on that
+3 business or auther data leayer 
+
+
