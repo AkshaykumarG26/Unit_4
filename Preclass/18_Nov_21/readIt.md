@@ -77,7 +77,7 @@ the output will be
 {"_id": "askjdnaskd", "fName": "amit", "lName": "badgu"}
 
 
-- db.collection.updateMany({}, {}) => same it is se to update many if same search occurence appier then it will modify all occurences that mongo get 
+- db.collection.updateMany({}, {$set: {}}) => same it is se to update many if same search occurence appier then it will modify all occurences that mongo get 
 
 
 

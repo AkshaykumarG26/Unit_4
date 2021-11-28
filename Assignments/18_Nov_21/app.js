@@ -5,9 +5,14 @@ const app = express()
 const books = require("./books.json");
 
 
-app.use(express.json())
+// app.use(express.json())
 
-// app.use(logger)
+const logger = (req, res, next) => {
+    req.name = "Akshaykumar";
+    next()
+}
+
+app.use(logger)
 
 
 
@@ -17,9 +22,17 @@ app.get("/", (req,res, next) => {
     
     //   or    //
     // next()
+    // res.send(req.name, books)
+    // res.json({"Requestd_by": req.name})
     res.send({books})
 
 });
+
+
+app.post("/books", (req, res) => {
+    const newUser = [...books, req.body]
+    res.send(newUser)
+})
 
 
 app.get("/books/:id", (req, res) => {
@@ -29,12 +42,6 @@ app.get("/books/:id", (req, res) => {
     res.send(newBooks)
     // console.log(newBooks)
 })
-
-app.post("/books", (req, res) => {
-    const newUser = [...books, req.body]
-    res.send(newUser)
-})
-
 
 
 
@@ -61,10 +68,9 @@ app.delete("/books/:id", (req, res) => {
 })
 
 
-// function logger(req, res, next){
-//     res.send({"Requestd by": "Akshaykumar"})
-//     next()
-// }
+
+
+
 
 
 
@@ -73,3 +79,6 @@ app.listen(1324, function(){
     console.log("server running on port 1324 Assignment of 18_Nov_21")
 
 })
+
+
+
