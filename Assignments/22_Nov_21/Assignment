@@ -1,0 +1,38 @@
+use assignment
+
+db.createCollection("users")
+
+db.users.insert({first_name: "Akshaykumar", last_name: "Gullapalli", email: "akshay@gmail.com", gender: "Male", ip_address: "192.168.1.1", age: 24})
+
+db.users.insertMany([
+  {first_name: "Amol", last_name: "Pudur", email: "amol@gmail.com", gender: "Male", ip_address: "192.158.1.1", age: 24}, 
+  {first_name: "Akash", last_name: "Nomul", email: "akash@gmail.com", gender: "Male", ip_address: "192.158.1.1", age: 26}, 
+  {first_name: "Amit", last_name: "Badgu", email: "amit@gmail.com", gender: "Male", ip_address: "192.148.1.1", age: 25}, 
+  {first_name: "Rishi", last_name: "Kandi", email: "Rishi@gmail.com", gender: "Male", ip_address: "192.138.1.1", age: 27},
+  {first_name: "Rohan", last_name: "Thengil", email: "rohan@gmail.com", gender: "Male", ip_address: "192.128.1.1", age: 24}, 
+  {first_name: "Ravi", last_name: "Gurav", email: "ravi@gmail.com", gender: "Male", ip_address: "192.118.1.1", age: 24}, 
+  {first_name: "Amita", last_name: "Dulange", email: "amita@gmail.com", gender: "Female", ip_address: "192.200.1.1", age: 25},
+  {first_name: "Pooja", last_name: "Koppad", email: "pooja@gmail.com", gender: "Female", ip_address: "192.201.1.1", age: 23},
+  {first_name: "Lokesh", last_name: "Gullapalli", email: "lokesh@gmail.com", gender: "Male", ip_address: "192.202.1.1", age: 28},
+  {first_name: "Rahul", last_name: "Gullapalli", email: "rahul@gmail.com", gender: "Male", ip_address: "192.203.1.1", age: 26}])
+
+
+db.users.find().pretty()
+
+db.users.findOne({first_name: "Akshaykumar"})  
+
+                      or 
+
+db.users.findOne({_id: objectId("61a2f9d6dc19d9a73c70fdb4")})
+
+db.users.update({_id: ObjectId("61a30080dc19d9a73c70fdbe")},{$set: {email: "koppi@gmail.com"}})
+
+db.users.updateMany({last_name: "Gullapalli"},{$set: {birth_place: "Solapur"}})
+
+db.users.remove({_id: ObjectId("61a30080dc19d9a73c70fdbc")})
+
+db.users.deleteOne({_id: ObjectId("61a30080dc19d9a73c70fdbd")})
+
+db.users.deleteMany({gender: "Male"})
+
+db.dropDatase()
