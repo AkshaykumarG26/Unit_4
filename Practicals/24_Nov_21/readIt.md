@@ -19,6 +19,18 @@ if terminal showing the output of listening on port number then it is connected 
 
 
 2. create a schema for our data
+const userSchema = new mongoose.Schema({
+    first_name: {type: String, required: true},
+    last_name: {type: String, required: false},
+    emial: {type: String, required: true},
+    gender: {type: String, required: false, default: "Male"},
+    age: {type: Number, require: true}
+})
+
+
 3. create model from schema
+
+const User = mongoose.model("user", userSchema) // always give collection name singular here mongo will make it plural
+
 
 
