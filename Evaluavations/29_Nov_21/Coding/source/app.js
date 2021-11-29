@@ -9,10 +9,9 @@ const connect = () => {
 
 const jobSchema = new mongoose.Schema({
     city:{type: String, required: true},
-    location:{type: String, required: false},
+    location_type:{type: String, required: false},
     notice_period:{type: Number, required: true},
     skills:{type: String, required: true},
-    work_from_home:{type: String, required: true},
     num_of_jobs:{type: Number, required: true},
     ratigs:{type: Number, required: true}
 },{
