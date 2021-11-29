@@ -16,7 +16,7 @@ app.listen(4321, async function (){
 
 if terminal showing the output of listening on port number then it is connected succefully
 
-
+ 
 
 2. create a schema for our data
 const userSchema = new mongoose.Schema({

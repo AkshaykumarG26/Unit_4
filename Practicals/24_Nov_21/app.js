@@ -6,6 +6,7 @@ const connect = () => {
     return mongoose.connect("mongodb://localhost:27017/test")
 }
 
+
 const userSchema = new mongoose.Schema({
     first_name: {type: String, required: true},
     last_name: {type: String, required: false},
@@ -34,9 +35,9 @@ delet single = /users/:id
 app.post("/users", async (req, res) => {
     try{
         const user = await User.create(req.body);  //create is insert
-        return res.status(201).send(user)
+        res.status(201).send(user)
     }catch(e){
-        return res.status(500).json({status: e.message})
+        res.status(500).json({status: e.message})
     }
 })
 
@@ -80,6 +81,7 @@ app.delete("/users/:id", async (req, res) => {
         return res.status(500).json({status: e.message})
     }
 })
+
 
 
 app.listen(4321, async function (){
