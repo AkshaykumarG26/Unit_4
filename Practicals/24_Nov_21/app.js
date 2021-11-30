@@ -74,7 +74,6 @@ app.patch("/users/:id", async(req, res) => {
 
 app.delete("/users/:id", async (req, res) => {
     try{
-
         const user = await User.findByIdAndDelete(req.params.id).lean().exec();
         return res.status(200).send(user)
     }catch(e){

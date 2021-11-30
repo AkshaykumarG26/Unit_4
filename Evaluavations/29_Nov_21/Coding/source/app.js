@@ -13,7 +13,7 @@ const jobSchema = new mongoose.Schema({
     notice_period:{type: Number, required: true},
     skills:{type: String, required: true},
     num_of_jobs:{type: Number, required: true},
-    ratigs:{type: Number, required: true}
+    ratings:{type: Number, required: true}
 },{
     versionKey: false,
     timestamps: true
@@ -29,8 +29,10 @@ app.post('/jobs', async(req, res) => {
     try{
         const job = await Job.create(req.body);
         res.status(201).send(job)
+        console.log("success")
     }catch(e){
         res.status(500).send({status: e.message})
+        console.log("Failed")
     }
 })
 
@@ -47,7 +49,7 @@ app.get("/jobs/:city/:skills", async (req, res) => {
 
 app.get("/jobs/:location_type", async(req, res) => {
     try{
-        const jobs = await Job.find({"location_type": {$eq: "work form home"}}).lean().exec();
+        const jobs = await Job.find({"location_type": {$eq: "work_form_home"}}).lean().exec();
         return res.status(201).send({ jobs })
     }catch(e){
         return res.status(500).json({ status: e.message })
