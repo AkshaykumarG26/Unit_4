@@ -34,3 +34,9 @@ const User = mongoose.model("user", userSchema) // always give collection name s
 
 
 
+.lean() is used in find to tell mongoose to return only json object we dont need any thing else  => when we use find this will return a mongoose object but whatever data we are getting we need to send it front end we dont need monggose object so this lean() return a proper data (data return by lean() is to be a json object)
+
+.exec() is used => mongoose does not know that find is last part of the query , mongoose instead of return proper promise it returns *thennable* it means kind of promise its not a promise when u do .exec() mongoose returns a proper promise
+
+
+app.use(express.json()) => any time that u r getting any data in the body of the request u need express.json if it is going to be a json body 

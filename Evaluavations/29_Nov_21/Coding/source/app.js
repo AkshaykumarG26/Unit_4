@@ -47,9 +47,9 @@ app.get("/jobs/:city/:skills", async (req, res) => {
     }
 })
 
-app.get("/jobs/:location_type", async(req, res) => {
+app.get("/jobs/:locationType", async(req, res) => {
     try{
-        const jobs = await Job.find({"location_type": {$eq: "work_form_home"}}).lean().exec();
+        const jobs = await Job.find({"location_type": {$eq: req.params.locationType}}).lean().exec();
         return res.status(201).send({ jobs })
     }catch(e){
         return res.status(500).json({ status: e.message })
