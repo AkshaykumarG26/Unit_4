@@ -91,3 +91,11 @@ posts                  tags
 
 
 
+populate("id or siomething") => is used to show the data of other collection in present collection
+
+
+
+MVC => 
+M => Modules --> business logic
+V => View --> front end 
+C => Controllers --> application
