@@ -19,4 +19,5 @@ const commentChema = new mongoose.Schema({
     timestamps: true
 })
 
+
 module.exports = mongoose.model("comment", commentChema) // it will create comments collections in db
