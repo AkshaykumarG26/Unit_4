@@ -2,17 +2,27 @@ const express = require("express")
 
 const router = express.Router()
 
+const sendMail = require("../utils/sendmail")
+
 const Product = require("../models/product.model")
 
 
 router.post("/", async (req,res) => {
     try{
         const product = await Product.create(req.body)
+        sendMail("a@a.com",
+        "b@b.com", 
+        `created new product with name ${req.body.name}`, 
+        "created a new product", 
+        "<h1>created a new product</h1>"
+        );
         return res.status(201).json({ product })
     }catch(e){
         return res.status(500).json({Status: "Failed", Message: e.message})
     }
 })
+
+
 
 
 router.get("/", async (req, res) => {
