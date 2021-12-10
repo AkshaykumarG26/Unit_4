@@ -7,7 +7,15 @@ const router = express.Router()
 
 const sendMail = require("../utils/sendmail")
 
+const admins = [
+    "a@a.com",
+    "b@b.com",
+    "c@c.com",
+    "d@d.com",
+    "e@e.com"
+]
 
+const admins = admins.join(",")
 
 
 router.post("/", async (req, res) => {
@@ -19,6 +27,13 @@ router.post("/", async (req, res) => {
             `Welcome to ABC system ${req.body.first_name} ${req.body.last_name}`,
             `Hi ${req.body.first_name}, Please confirm your email address`,
             `<h1>Hi ${req.body.first_name}, Please confirm your email address</h1>`
+        );
+        sendMail(
+            `${req.body.email}`,
+            admins,
+            `Welcome to ABC system ${req.body.first_name} ${req.body.last_name}`,
+            `Hi ${req.body.first_name} ${req.body.last_name} Has registered with us...!`,
+            `<h1>Please Welcome ${req.body.first_name} ${req.body.last_name}</h1>`
         )
         return res.status(201).send(user);
     }catch(e){

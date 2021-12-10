@@ -11,6 +11,9 @@ app.use(express.json())
 
 app.use("/products", productController)
 
+
+
+
 const start = async () => {
     await connect()
 
