@@ -13,9 +13,17 @@ body("last_name").notEmpty().withMessage("last_name is required"),
 body("email").custom(async (value) => {
     const userByEmail = await User.findOne({email: value}).lean().exec()
     if (userByEmail){
-        throw new Error("Try with another Email Address")
+        throw new Error("This mail id is already in use. Try with another Email Address")
     }
 }).isEmail().withMessage("valid email is required"),
+body("pincode").isLength({max: 6}).withMessage("enter the 6 digit pincode"),
+body("age").isLength({min: 1, max: 100}).withMessage("age should be in the eange of 1 to 100"),
+body("gender").custom((value) => {
+    if(value !== "male" && value !== "female" && value !== "others"){
+        throw new Error("please enter a correct gender")
+    }
+    return true
+}),
 async(req, res) => {
     const errors = validationResult(req);
         if(!errors.isEmpty()){
