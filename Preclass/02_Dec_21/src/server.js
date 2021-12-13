@@ -6,11 +6,12 @@ app.use(express.json())
 
 
 const { signup, signin } = require("./controllers/auth.controller")
+
 app.post("/signup", signup)
 app.post("/signin", signin) 
 
-
-
+const userController = require("./controllers/user.controller")
+app.use("/users", userController)
 
 
 
