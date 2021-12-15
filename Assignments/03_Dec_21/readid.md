@@ -1,3 +1,11 @@
+Assignment
+
+------------ Authentication ------------
+
+
+
+
+
 for passwords always use hashing bcos it create very high complicated hashes
 
 hashing => palin string(password) + salt or rehash(unique thing ) => strong hash  //rehash 
