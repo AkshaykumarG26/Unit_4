@@ -5,13 +5,19 @@ const app = express()
 app.use(express.json())
 
 
-const { signup, signin } = require("./controllers/auth.controller")
-
-app.post("/signup", signup)
-app.post("/signin", signin) 
-
+const {signup, signin} = require("./controllers/auth.controller");
 const userController = require("./controllers/user.controller")
+
+
+app.post("/signup", signup);
+app.post("/signin", signin);
+
+
 app.use("/users", userController)
+
+
+
+
 
 
 

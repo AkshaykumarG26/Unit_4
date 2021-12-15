@@ -11,7 +11,7 @@ function masaiLifting(str){
 
 
 function runProgram(input) {
-    input = input.trim().split("\n");
+      input = input.trim().split("\n");
     var testCases = +input[0]
     // console.log(testCases)
 
